@@ -1,0 +1,30 @@
+# Grafana 配置
+grafana:
+  enabled: true
+  adminPassword: "admin123"
+  service:
+    type: ClusterIP
+    port: 80
+  persistence:
+    enabled: false  # 第一次安装先不启用持久化，简化配置
+
+# Prometheus 配置
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "250m"
+
+# AlertManager 配置
+alertmanager:
+  enabled: true
+
+# Node Exporter（主机监控）
+nodeExporter:
+  enabled: true
+
+# Kube State Metrics
+kubeStateMetrics:
+  enabled: true
